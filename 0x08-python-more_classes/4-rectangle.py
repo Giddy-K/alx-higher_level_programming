@@ -51,9 +51,3 @@ class Rectangle:
 
     def __repr__(self):
         return f"Rectangle({self.width}, {self.height})"
-
-# Example usage:
-# r = Rectangle(3, 2)
-# print(r)         # Prints the rectangle using '#'
-# print(repr(r))   # Rectangle(3, 2)
-
