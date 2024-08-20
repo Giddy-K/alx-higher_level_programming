@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 '''
-class that  define a City
+classes that define a City
 '''
 
 
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-from model_state import Base, State
+from relationship_state import Base
 
 
 class City(Base):

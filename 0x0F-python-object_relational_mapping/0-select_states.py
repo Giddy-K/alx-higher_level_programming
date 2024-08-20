@@ -1,15 +1,50 @@
 #!/usr/bin/python3
+"""
+Script listing all states from the hbtn_0e_0_usa database
+"""
 
-import MySQLdb
 import sys
+import MySQLdb
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(host="localhost", user=sys.argv[1],
-                         passwd=sys.argv[2], db=sys.argv[3], port=3306)
-    c = db.cursor()
-    c.execute("SELECT * FROM states")
-    rows = c.fetchall()
-    for row in rows:
-        print(row)
-    c.close()
-    db.close()
+
+def main():
+    """Main function"""
+
+    # Connect to database
+    connection = connect_to_db()
+
+    # Get cursor
+    cursor = connection.cursor()
+
+    # Select query
+    cursor.execute('SELECT * FROM states ORDER BY id ASC;')
+
+    # Fetch results
+    states = cursor.fetchall()
+
+    # Print states
+    print_states(states)
+
+    # Close connection
+    connection.close()
+
+
+def connect_to_db():
+    """Connect to database"""
+    return MySQLdb.connect(
+        user=sys.argv[1],
+        password=sys.argv[2],
+        database=sys.argv[3],
+        port=3306,
+        host='localhost'
+    )
+
+
+def print_states(states):
+    """Print states"""
+    for state in states:
+        print(state)
+
+
+if __name__ == '__main__':
+    main()
