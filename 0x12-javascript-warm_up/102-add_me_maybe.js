@@ -1,7 +1,5 @@
 #!/usr/bin/node
-const addMeMaybe = (number, theFunction) => {
-	nnumber++;
-	theFunction(number);
+// this the code that log addMeMaybe.
+exports.addMeMaybe = function (number, theFunction) {
+  theFunction(++number);
 };
-
-module.exports.addMeMaybe = addMeMaybe;

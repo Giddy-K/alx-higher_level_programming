@@ -1,11 +1,8 @@
 #!/usr/bin/node
-
-const argumentsList = process.argv.slice(2);
-const numbers = argumentsList.map(arg => parseInt(arg));
-
-if (numbers.length < 2) {
-	console.log(0);
+if (process.argv.length <= 3) {
+  console.log(0);
 } else {
-	const sortedNumbers = numbers((a, b) => b - a);
-	console.log(sortedNumbers[1]);
+  const args = process.argv.slice(2).map(Number);
+  args.sort((a, b) => b - a);
+  console.log(args[1]);
 }
